@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import CardFront from './components/CardFront.vue';
+
+onMounted(() => {
+  document.body.className = 'font-space-grotesk'
+})
 </script>
 
 <template>
