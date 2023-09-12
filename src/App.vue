@@ -12,7 +12,13 @@ onMounted(() => {
   <!-- Page Layout -->
   <div class="relative flex flex-col items-center justify-start min-h-screen">
     <img src="./assets/bg-main-mobile.png">
-    <img class="absolute rounded h-[10rem] top-[4%] right-[5%]" src="./assets/bg-card-back.png" alt="card-back">
+
+    <div class="absolute rounded top-[4%] right-[5%]">
+      <img class="h-[10rem]" src="./assets/bg-card-back.png" alt="card-back">
+      <p class="absolute top-[44%] right-[12%] text-xs tracking-widest text-white/75">000</p>
+    </div>
+
+    
     <CardFront></CardFront>
     
   </div>
