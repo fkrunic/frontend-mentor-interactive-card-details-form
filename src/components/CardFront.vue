@@ -38,8 +38,7 @@ defineProps<{ digits: string, name: string, expiration: string }>()
         text-[18px] desktop:text-[30px]
         tracking-[2.16px] desktop:tracking-[2.1px]
         text-white
-        "
-        >{{ digits }}</p>
+        ">{{ digits }}</p>
 
       <!-- Name -->
       <p class="
