@@ -30,7 +30,9 @@ import CardFront from './CardFront.vue';
             :name="'JANE APPLESEED'" 
             :expiration="'00/00'"
             ></CardFront>        
-          </div>
+        </div>
+
+        <p class="mt-[50px]">Hello world!</p>
       </div>
     </div>
   </div>
