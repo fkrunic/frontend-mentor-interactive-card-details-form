@@ -9,5 +9,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <Desktop></Desktop>
+  <Phone></Phone>
 </template>
