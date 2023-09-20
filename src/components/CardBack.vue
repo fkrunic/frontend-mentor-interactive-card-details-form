@@ -10,8 +10,8 @@ defineProps<{ cvc: string }>()
 
       <!-- Card Back Background -->
       <img class="
-        w-[286px] 
-        h-[158px]
+        w-[286px] desktop:w-[447px]
+        h-[158px] desktop:h-[245px]
         " 
         src="../assets/bg-card-back.png" 
         alt="card-back">
@@ -19,11 +19,11 @@ defineProps<{ cvc: string }>()
       <!-- Digits -->
       <p class="
         absolute 
-        left-[230px] 
-        top-[70px] 
+        left-[230px] desktop:left-[350px]
+        top-[70px] desktop:top-[110px]
         font-bold 
-        text-[10px] 
-        tracking-[0.8px] 
+        text-[10px] desktop:text-[14px]
+        tracking-[0.8px] desktop:tracking-[1.4px]
         text-white
         ">{{ cvc }}</p>
     </div>
