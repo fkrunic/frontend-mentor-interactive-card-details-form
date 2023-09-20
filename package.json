@@ -10,6 +10,7 @@
     "publish-pages": "git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
+    "pinia": "^2.1.6",
     "ts-pattern": "^5.0.5",
     "vue": "^3.3.4"
   },
