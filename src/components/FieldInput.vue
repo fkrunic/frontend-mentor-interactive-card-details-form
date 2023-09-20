@@ -1,8 +1,23 @@
 <script setup lang="ts">
-defineProps<{ placeholder: string, isError: boolean }>()
+import { match } from 'ts-pattern'
+
+type Length = 'short' | 'medium' | 'long'
+defineProps<{ placeholder: string, isError: boolean, length: Length }>()
+
+const width = (length: Length): Array<string> => {
+  return match(length)
+    .with('short', () => ['w-[72px]', 'desktop:w-[79px]'])
+    .with('medium', () => ['w-[164px]', 'desktop:w-[191px]'])
+    .with('long', () => ['w-[327px]', 'desktop:w-[380px]'])
+    .exhaustive()
+}
 
 const border = (isError: boolean): string => {
   return isError ? 'border-red' : 'border-very-dark-violet/30'
+}
+
+const conditional = (isError: boolean, length: Length): Array<string> => {
+  return width(length).concat(border(isError))
 }
 </script>
 
@@ -10,7 +25,6 @@ const border = (isError: boolean): string => {
   <input class="
     px-[16px] 
     py-[11px] 
-    w-[327px] desktop:w-[380px] 
     h-[44px]
     outline-none
     border-solid
@@ -21,6 +35,6 @@ const border = (isError: boolean): string => {
     text-[17px]
     tracking-[0.51px]
     "
-    :class="border(isError)"
+    :class="conditional(isError, length)"
     >
 </template>
