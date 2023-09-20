@@ -2,7 +2,14 @@
 import { match } from 'ts-pattern'
 
 type Length = 'short' | 'medium' | 'long'
+
 defineProps<{ placeholder: string, isError: boolean, length: Length }>()
+const emit = defineEmits<{ (event: 'input', input: string): void }>()
+
+const onInput = (event: Event): void => {
+  const input = (event.target as HTMLInputElement).value
+  emit('input', input)
+}
 
 const width = (length: Length): Array<string> => {
   return match(length)
@@ -19,6 +26,7 @@ const border = (isError: boolean): string => {
 const conditional = (isError: boolean, length: Length): Array<string> => {
   return width(length).concat(border(isError))
 }
+
 </script>
 
 <template>
@@ -34,7 +42,5 @@ const conditional = (isError: boolean, length: Length): Array<string> => {
     font-bold
     text-[17px]
     tracking-[0.51px]
-    "
-    :class="conditional(isError, length)"
-    >
+    " :class="conditional(isError, length)" @input="onInput">
 </template>
