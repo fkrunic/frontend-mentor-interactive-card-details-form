@@ -32,3 +32,6 @@ export const buildInputStore = (name: string, validators: Array<Validator>) => {
 
 export const useNameStore = buildInputStore('name', [nonEmpty])
 export const useNumberStore = buildInputStore('number', [nonEmpty])
+export const useExpirationMonthStore = buildInputStore('expirationMonth', [nonEmpty])
+export const useExpirationYearStore = buildInputStore('expirationYear', [nonEmpty])
+export const useCVCStore = buildInputStore('cvc', [nonEmpty])
