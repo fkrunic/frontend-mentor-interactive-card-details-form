@@ -1,8 +1,8 @@
 <script setup lang="ts">
 type ButtonType = 'Confirm' | 'Continue'
 defineProps<{ buttonType: ButtonType }>()
-const emit = defineEmits<{ (event: 'submit'):void }>()
-const onClick = (): void => emit('submit')
+const emit = defineEmits<{ (event: 'click'):void }>()
+const onClick = (): void => emit('click')
 </script>
 
 <template>
