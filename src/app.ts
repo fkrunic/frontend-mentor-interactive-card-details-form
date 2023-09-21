@@ -19,3 +19,11 @@ export const useNameStore = defineStore('name', () => {
   return { input, status, update }
 })
 
+export const useNumberStore = defineStore('number', () => {
+  const input = ref('')
+  const status = computed(() => {
+    return input.value !== '' ? statusOK : statusError('Cannot be empty')
+  })
+  const update = (newInput: string): void => { input.value = newInput }
+  return { input, status, update }
+})
