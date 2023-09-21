@@ -9,7 +9,8 @@ export type Status
 type Validator = (input: string) => Status
 
 const nonEmpty = (input: string): Status => {
-  return input !== '' ? { kind: 'ok' } : { kind: 'error', message: 'Cannot be empty' }
+  const message = "Can't be empty"
+  return input !== '' ? { kind: 'ok' } : { kind: 'error', message }
 }
 
 const firstError = (input: string) => (status: Status, validator: Validator): Status => {
