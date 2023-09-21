@@ -6,9 +6,15 @@ defineProps<{ title: string, status: Status }>()
 </script>
 
 <template>
-  <div class="flex flex-col gap-[9px]">
-    <FieldTitle :title="title"></FieldTitle>
-    <slot></slot>
-    <FieldError v-if="status.kind === 'error'" :message="status.message"></FieldError>
-  </div>  
+  <!-- Root -->
+  <div>
+    <div class="relative flex flex-col gap-[9px]">
+      <FieldTitle :title="title"></FieldTitle>
+      <slot></slot>
+      <FieldError 
+        v-if="status.kind === 'error'" 
+        class="absolute top-[77px]" 
+        :message="status.message"></FieldError>
+    </div>  
+  </div>
 </template>
