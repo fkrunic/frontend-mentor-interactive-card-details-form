@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from './Button.vue';
-import { useNumberStore } from '../app';
+import { useNumberStore } from '@/app';
 
 const store = useNumberStore()
 const onClick = () => {

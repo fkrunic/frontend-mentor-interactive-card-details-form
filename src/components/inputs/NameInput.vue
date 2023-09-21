@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import FieldBox from './FieldBox.vue';
-import FieldInput from './FieldInput.vue';
-import { useNameStore } from '../app'
+import FieldBox from '@/components/fields/FieldBox.vue';
+import FieldInput from '@/components/fields/FieldInput.vue';
+import { useNameStore } from '@/app'
 
 const store = useNameStore()
 const onInput = (input: string): void => store.updateInput(input)

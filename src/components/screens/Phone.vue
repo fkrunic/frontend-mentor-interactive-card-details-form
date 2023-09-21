@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CardBack from './CardBack.vue';
-import CardFront from './CardFront.vue';
+import CardBack from '@/components/cards/CardBack.vue';
+import CardFront from '@/components/cards/CardFront.vue';
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import CardFront from './CardFront.vue';
     <div class="flex flex-col items-center">
 
       <!-- Banner Background -->
-      <img class="w-full h-[240px]" src="../assets/bg-main-mobile.png" alt="banner">
+      <img class="w-full h-[240px]" src="@/assets/bg-main-mobile.png" alt="banner">
 
       <!-- Content -->
       <div class="flex flex-col gap-[50px] items-center -mt-[209px]">

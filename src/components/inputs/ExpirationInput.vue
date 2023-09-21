@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import FieldBox from './FieldBox.vue';
-import FieldInput from './FieldInput.vue';
-import { Status, useExpirationMonthStore } from '../app';
-import { useExpirationYearStore } from '../app';
+import FieldBox from '@/components/fields/FieldBox.vue';
+import FieldInput from '@/components/fields/FieldInput.vue';
+import { Status, useExpirationMonthStore, useExpirationYearStore } from '@/app';
 
 const monthStore = useExpirationMonthStore()
 const yearStore = useExpirationYearStore()

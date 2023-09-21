@@ -13,7 +13,7 @@ defineProps<{ cvc: string }>()
         w-[286px] desktop:w-[447px]
         h-[158px] desktop:h-[245px]
         " 
-        src="../assets/bg-card-back.png" 
+        src="@/assets/bg-card-back.png" 
         alt="card-back">
 
       <!-- Digits -->

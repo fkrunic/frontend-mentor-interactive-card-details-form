@@ -15,7 +15,7 @@ defineProps<{ digits: string, name: string, expiration: string }>()
         h-[156px] desktop:h-[245px]
         rounded-[5px]
         " 
-        src="../assets/bg-card-front.png" 
+        src="@/assets/bg-card-front.png" 
         alt="card-front">
 
       <!-- Card Logo -->
@@ -26,7 +26,7 @@ defineProps<{ digits: string, name: string, expiration: string }>()
         w-[56px] desktop:w-[88px]
         h-[30px] desktop:h-[49px]
         " 
-        src="../assets/card-logo.svg" 
+        src="@/assets/card-logo.svg" 
         alt="card-logo">
 
       <!-- Card Digits -->

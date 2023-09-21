@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import FieldTitle from './FieldTitle.vue';
 import FieldError from './FieldError.vue';
-import { Status } from '../app';
+import { Status } from '@/app';
 
 defineProps<{ title: string, status: Status }>()
 </script>
