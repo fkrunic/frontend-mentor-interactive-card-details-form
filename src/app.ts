@@ -10,20 +10,16 @@ const statusError = (message: string) => {
   return { kind: 'error', message } as Status
 }
 
-export const useNameStore = defineStore('name', () => {
-  const input = ref('')
-  const status = computed(() => {
-    return input.value !== '' ? statusOK : statusError('Cannot be empty')
+export const buildInputStore = (name: string) => {
+  return defineStore(name, () => {
+    const input = ref('')
+    const status = computed(() => {
+      return input.value !== '' ? statusOK : statusError('Cannot be empty')
+    })
+    const update = (newInput: string): void => { input.value = newInput }
+    return { input, status, update }
   })
-  const update = (newInput: string): void => { input.value = newInput }
-  return { input, status, update }
-})
+}
 
-export const useNumberStore = defineStore('number', () => {
-  const input = ref('')
-  const status = computed(() => {
-    return input.value !== '' ? statusOK : statusError('Cannot be empty')
-  })
-  const update = (newInput: string): void => { input.value = newInput }
-  return { input, status, update }
-})
+export const useNameStore = buildInputStore('name')
+export const useNumberStore = buildInputStore('number')
