@@ -1,5 +1,12 @@
 <script setup lang="ts">
-defineProps<{ cvc: string }>()
+import { useAppStore, useCVCStore } from '@/app';
+import { computed } from 'vue';
+const cvcStore = useCVCStore()
+const appStore = useAppStore()
+
+const cvc = computed(() => {
+  return appStore.isFormValid ? cvcStore.input : '000'
+})
 </script>
 
 <template>
