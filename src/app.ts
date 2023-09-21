@@ -12,22 +12,17 @@ const nonEmpty = (input: string): Status => {
   return input !== '' ? { kind: 'ok' } : { kind: 'error', message: 'Cannot be empty' }
 }
 
+const firstError = (input: string) => (status: Status, validator: Validator): Status => {
+  return status.kind === 'error' ? status : validator(input)
+}
+
 export const buildInputStore = (name: string, validators: Array<Validator>) => {
   return defineStore(name, () => {
     const input = ref('')
     const status = ref({ kind: 'unchecked' } as Status)
     const updateStatus = () => {
-
-      // Update the status to the first error that occurs.
-      for (let validate of validators) {
-        const check = validate(input.value)
-        if (check.kind === 'error') {
-          status.value = check
-        }
-      }
-
-      // If no validation error occurs, set status to OK.
-      status.value = { kind: 'ok' }
+      const newStatus = validators.reduce(firstError(input.value), { kind: 'ok' })
+      status.value = newStatus
     }
     const updateInput = (newInput: string): void => { input.value = newInput }
     return { input, status, updateInput, updateStatus }
