@@ -25,7 +25,7 @@ const onYearInput = (input: string): void => yearStore.updateInput(input)
 
 <template>
   <FieldBox :title="'EXP. DATE (MM/YY)'" :status="combinedStatus(monthStore.status, yearStore.status)">
-    <div class="flex flex-row gap-[11px] desktop:gap-[21px]">
+    <div class="flex flex-row items-center gap-[8px] desktop:gap-[11px]">
       <FieldInput
         :placeholder="'MM'"
         :is-error="monthStore.status.kind === 'error'"
