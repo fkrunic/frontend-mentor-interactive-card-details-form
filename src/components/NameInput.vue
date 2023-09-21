@@ -4,7 +4,7 @@ import FieldInput from './FieldInput.vue';
 import { useNameStore } from '../app'
 
 const store = useNameStore()
-const onInput = (input: string): void => store.update(input)
+const onInput = (input: string): void => store.updateInput(input)
 </script>
 
 <template>
