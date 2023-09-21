@@ -29,12 +29,7 @@ const store = useAppStore()
             <CardBack :cvc="'000'"></CardBack>
           </div>
 
-          <CardFront 
-            class="absolute -left-[2px] top-[96px]"
-            :digits="'0000 0000 0000 0000'" 
-            :name="'JANE APPLESEED'" 
-            :expiration="'00/00'"
-            ></CardFront>        
+          <CardFront class="absolute -left-[2px] top-[96px]"></CardFront>        
         </div>
 
         <!-- Form Spacer -->
