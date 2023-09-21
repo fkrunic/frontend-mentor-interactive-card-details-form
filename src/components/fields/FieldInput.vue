@@ -38,9 +38,13 @@ const conditional = (isError: boolean, length: Length): Array<string> => {
     border-solid
     border-[1px]
     rounded-[10px]
-    placeholder-very-dark-violet/30
+    placeholder-light-grayish-violet
     font-bold
     text-[17px]
     tracking-[0.51px]
-    " :class="conditional(isError, length)" @input="onInput">
+    " 
+    :placeholder="placeholder"
+    :class="conditional(isError, length)" 
+    @input="onInput"
+    >
 </template>
