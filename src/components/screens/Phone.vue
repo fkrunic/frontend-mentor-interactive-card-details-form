@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import CardBack from '@/components/cards/CardBack.vue';
 import CardFront from '@/components/cards/CardFront.vue';
+import CardForm from '../forms/CardForm.vue';
 </script>
 
 <template>
@@ -32,7 +33,7 @@ import CardFront from '@/components/cards/CardFront.vue';
             ></CardFront>        
         </div>
 
-        <p class="mt-[50px]">Hello world!</p>
+        <CardForm class="pt-[90px]"></CardForm>
       </div>
     </div>
   </div>
