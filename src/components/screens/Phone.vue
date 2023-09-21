@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import CardBack from '@/components/cards/CardBack.vue';
 import CardFront from '@/components/cards/CardFront.vue';
-import CardForm from '../forms/CardForm.vue';
+import CardForm from '@/components/forms/CardForm.vue';
+import Completed from '@/components/forms/Completed.vue';
+import { useAppStore } from '@/app';
+
+const store = useAppStore()
 </script>
 
 <template>
@@ -33,7 +37,11 @@ import CardForm from '../forms/CardForm.vue';
             ></CardFront>        
         </div>
 
-        <CardForm class="pt-[90px]"></CardForm>
+        <!-- Form Spacer -->
+        <div class="pt-[90px]">
+          <Completed v-if="store.isFormValid"></Completed>
+          <CardForm v-else></CardForm>
+        </div>
       </div>
     </div>
   </div>
