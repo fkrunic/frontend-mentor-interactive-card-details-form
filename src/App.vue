@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import Desktop from '@/components/screens/Desktop.vue'
+import Phone from './components/screens/Phone.vue';
+import Desktop from './components/screens/Desktop.vue';
 
 onMounted(() => {
   document.body.className = 'font-space-grotesk'
@@ -8,5 +9,6 @@ onMounted(() => {
 </script>
 
 <template>
-  <Desktop></Desktop>
+  <Phone class="desktop:hidden"></Phone>
+  <Desktop class="hidden desktop:flex"></Desktop>
 </template>

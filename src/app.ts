@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export type Status
   = { kind: 'unchecked' }
@@ -35,3 +35,21 @@ export const useNumberStore = buildInputStore('number', [nonEmpty])
 export const useExpirationMonthStore = buildInputStore('expirationMonth', [nonEmpty])
 export const useExpirationYearStore = buildInputStore('expirationYear', [nonEmpty])
 export const useCVCStore = buildInputStore('cvc', [nonEmpty])
+
+export const useAppStore = defineStore('app', () => {
+  const nameStore = useNameStore()
+  const numberStore = useNumberStore()
+  const monthStore = useExpirationMonthStore()
+  const yearStore = useExpirationYearStore()
+  const cvcStore = useCVCStore()
+
+  const isFormValid = computed(() => {
+    return nameStore.status.kind === 'ok' &&
+      numberStore.status.kind === 'ok' &&
+      monthStore.status.kind === 'ok' &&
+      yearStore.status.kind === 'ok' &&
+      cvcStore.status.kind === 'ok'
+  })
+
+  return { isFormValid }
+})
