@@ -1,10 +1,25 @@
 <script setup lang="ts">
 import Button from './Button.vue';
-import { useNumberStore } from '@/app';
+import {
+  useNameStore,
+  useNumberStore,
+  useExpirationMonthStore,
+  useExpirationYearStore,
+  useCVCStore
+} from '@/app';
 
-const store = useNumberStore()
+const nameStore = useNameStore()
+const numberStore = useNumberStore()
+const expirationMonthStore = useExpirationMonthStore()
+const expirationYearStore = useExpirationYearStore()
+const cvcStore = useCVCStore()
+
 const onClick = () => {
-  store.updateStatus()
+  nameStore.updateStatus()
+  numberStore.updateStatus()
+  expirationMonthStore.updateStatus()
+  expirationYearStore.updateStatus()
+  cvcStore.updateStatus()
 }
 </script>
 
