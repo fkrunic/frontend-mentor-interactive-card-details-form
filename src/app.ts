@@ -18,16 +18,16 @@ export const buildInputStore = (name: string, validators: Array<Validator>) => {
     const status = ref({ kind: 'unchecked' } as Status)
     const updateStatus = () => {
 
-      // Return first validation error that occurs.
+      // Update the status to the first error that occurs.
       for (let validate of validators) {
         const check = validate(input.value)
         if (check.kind === 'error') {
-          return check
+          status.value = check
         }
       }
 
-      // If no validation error occurs, return OK. 
-      return { kind: 'ok' }
+      // If no validation error occurs, set status to OK.
+      status.value = { kind: 'ok' }
     }
     const updateInput = (newInput: string): void => { input.value = newInput }
     return { input, status, updateInput, updateStatus }
