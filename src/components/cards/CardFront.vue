@@ -1,5 +1,37 @@
 <script setup lang="ts">
-defineProps<{ digits: string, name: string, expiration: string }>()
+import { 
+  useAppStore, 
+  useNameStore, 
+  useNumberStore, 
+  useExpirationMonthStore, 
+  useExpirationYearStore 
+} from '@/app';
+import { computed } from 'vue';
+
+const nameStore = useNameStore()
+const numberStore = useNumberStore()
+const monthStore = useExpirationMonthStore()
+const yearStore = useExpirationYearStore()
+const appStore = useAppStore()
+
+const defaults = {
+  number: '0000 0000 0000 0000',
+  name: 'JANE APPLESEED',
+  expiration: '00/00'
+}
+
+const number = computed(() => {
+  return appStore.isFormValid ? numberStore.input : defaults.number
+})
+
+const name = computed(() => {
+  return appStore.isFormValid ? nameStore.input : defaults.name
+})
+
+const expiration = computed(() => {
+  const possibleExp = monthStore.input + '/' + yearStore.input
+  return appStore.isFormValid ? possibleExp : defaults.expiration
+})
 </script>
 
 <template>
@@ -38,7 +70,7 @@ defineProps<{ digits: string, name: string, expiration: string }>()
         text-[18px] desktop:text-[30px]
         tracking-[2.16px] desktop:tracking-[2.1px]
         text-white
-        ">{{ digits }}</p>
+        ">{{ number }}</p>
 
       <!-- Name -->
       <p class="
@@ -49,6 +81,7 @@ defineProps<{ digits: string, name: string, expiration: string }>()
         text-[10px] desktop:text-[14px]
         tracking-[0.8px] desktop:tracking-[1.96px]
         text-white
+        uppercase
         ">{{ name }}</p>
 
       <!-- Expiration -->
