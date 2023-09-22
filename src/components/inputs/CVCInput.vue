@@ -14,6 +14,7 @@ const onInput = (input: string): void => store.updateInput(input)
       :is-error="store.status.kind === 'error'"
       :length="'medium'"
       @input="onInput"
+      autocomplete="cc-csc"
       ></FieldInput>
   </FieldBox>
 </template>
