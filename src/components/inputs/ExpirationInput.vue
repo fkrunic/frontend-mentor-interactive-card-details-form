@@ -31,14 +31,14 @@ const onYearInput = (input: string): void => yearStore.updateInput(input)
         :is-error="monthStore.status.kind === 'error'"
         :length="'short'"
         @input="onMonthInput"
-        name="cc-exp-month"
+        autofill="cc-exp-month"
         ></FieldInput>
       <FieldInput
         :placeholder="'YY'"
         :is-error="yearStore.status.kind === 'error'"
         :length="'short'"
         @input="onYearInput"
-        name="cc-exp-year"
+        autofill="cc-exp-year"
         ></FieldInput>
     </div>
   </FieldBox>
