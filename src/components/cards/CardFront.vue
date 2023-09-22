@@ -53,7 +53,16 @@ const expiration = computed(() => {
   <div>
 
     <!-- Card Front -->
-    <div class="relative flex flex-col gap-[10px]">
+    <div class="
+      relative 
+      flex 
+      flex-col 
+      gap-[10px]
+      w-fit 
+      shadow-2xl 
+      shadow-very-dark-violet/75
+      rounded-[10px]
+      ">
 
       <!-- Card Background -->
       <img class="
@@ -80,7 +89,7 @@ const expiration = computed(() => {
         absolute 
         left-[20px] desktop:left-[33px]
         top-[85px] desktop:top-[140px]
-        font-bold 
+        font-bold desktop:font-semibold
         text-[18px] desktop:text-[30px]
         tracking-[2.16px] desktop:tracking-[2.1px]
         text-white

@@ -13,7 +13,15 @@ const cvc = computed(() => {
   <!-- Root -->
   <div>
     <!-- Card Back -->
-    <div class="relative flex flex-col gap-[10px]">
+    <div class="
+      relative 
+      flex 
+      flex-col 
+      gap-[10px] 
+      shadow-2xl 
+      shadow-very-dark-violet/40 
+      rounded-[10px]
+      ">
 
       <!-- Card Back Background -->
       <img class="
