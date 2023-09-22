@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import validator from 'validator'
 
 export type Status
   = { kind: 'unchecked' }
@@ -11,6 +12,33 @@ type Validator = (input: string) => Status
 const nonEmpty = (input: string): Status => {
   const message = "Can't be empty"
   return input !== '' ? { kind: 'ok' } : { kind: 'error', message }
+}
+
+const isCreditCard = (input: string): Status => {
+  const message = 'Invalid card number'
+  return validator.isCreditCard(input) ? { kind: 'ok' } : { kind: 'error', message }
+}
+
+const isExpirationMonth = (input: string): Status => {
+  const options = [
+    '01', '02', '03', '04', '05', '06',
+    '07', '08', '09', '10', '11', '12'
+  ]
+  const message = 'Invalid expiration month'
+  return validator.isIn(input, options) ? { kind: 'ok' } : { kind: 'error', message }
+}
+
+const isExpirationYear = (input: string): Status => {
+  const options = ['23', '24', '25', '26', '27']
+  const message = 'Invalid expiration year'
+  return validator.isIn(input, options) ? { kind: 'ok' } : { kind: 'error', message }
+}
+
+const isCVC = (input: string): Status => {
+  const num = Number(input)
+  const validCVC = Number.isInteger(num) && (1 <= num) && (num <= 999)
+  const message = 'Invalid CVC'
+  return validCVC ? { kind: 'ok' } : { kind: 'error', message }
 }
 
 const firstError = (input: string) => (status: Status, validator: Validator): Status => {
@@ -31,10 +59,10 @@ export const buildInputStore = (name: string, validators: Array<Validator>) => {
 }
 
 export const useNameStore = buildInputStore('name', [nonEmpty])
-export const useNumberStore = buildInputStore('number', [nonEmpty])
-export const useExpirationMonthStore = buildInputStore('expirationMonth', [nonEmpty])
-export const useExpirationYearStore = buildInputStore('expirationYear', [nonEmpty])
-export const useCVCStore = buildInputStore('cvc', [nonEmpty])
+export const useNumberStore = buildInputStore('number', [nonEmpty, isCreditCard])
+export const useExpirationMonthStore = buildInputStore('expirationMonth', [nonEmpty, isExpirationMonth])
+export const useExpirationYearStore = buildInputStore('expirationYear', [nonEmpty, isExpirationYear])
+export const useCVCStore = buildInputStore('cvc', [nonEmpty, isCVC])
 
 export const useAppStore = defineStore('app', () => {
   const nameStore = useNameStore()
