@@ -23,15 +23,11 @@ const store = useAppStore()
 
         <!-- Cards -->
         <div class="flex flex-col gap-[38px]">
-          <CardFront 
-            :digits="'0000 0000 0000 0000'" 
-            :name="'JANE APPLESEED'" 
-            :expiration="'00/00'"
-            ></CardFront> 
+          <CardFront></CardFront> 
 
           <!-- Card Back Spacer -->
           <div class="flex flex-col gap-[10px] pl-[94px]">
-            <CardBack :cvc="'000'"></CardBack>
+            <CardBack></CardBack>
           </div>
         </div>
 

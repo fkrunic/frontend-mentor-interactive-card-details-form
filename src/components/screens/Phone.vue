@@ -26,7 +26,7 @@ const store = useAppStore()
 
           <!-- Card Back Spacer -->
           <div class="flex flex-col gap-[10px] items-center pl-[55px]">
-            <CardBack :cvc="'000'"></CardBack>
+            <CardBack></CardBack>
           </div>
 
           <CardFront class="absolute -left-[2px] top-[96px]"></CardFront>        
