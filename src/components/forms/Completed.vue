@@ -4,9 +4,11 @@ import Button from '../buttons/Button.vue';
 
 <template>
   <div class="flex flex-col gap-[45px] items-center">
+
     <!-- Content -->
     <div class="flex flex-col gap-[18px] items-center">
       <img class="w-[80px] h-[80px]" src="@/assets/icon-complete.svg" alt="completed">
+      
       <!-- Callout -->
       <div class="flex flex-col gap-[15px] items-center justify-center pt-[20px]">
         <p class="font-bold text-[28px] tracking-[3.36px]">THANK YOU</p>
