@@ -45,6 +45,20 @@ const firstError = (input: string) => (status: Status, validator: Validator): St
   return status.kind === 'error' ? status : validator(input)
 }
 
+export const formatCardNumber = (cn: string): string => {
+  const noSpaces = cn.replace(/\s+/g, '')
+  let formated = ''
+
+  for (let i = 0; i < noSpaces.length; i++) {
+    if (i > 0 && i % 4 == 0) {
+      formated += ' '
+    }
+    formated += noSpaces.charAt(i)
+  }
+
+  return formated.trim()
+}
+
 export const buildInputStore = (name: string, validators: Array<Validator>) => {
   return defineStore(name, () => {
     const input = ref('')

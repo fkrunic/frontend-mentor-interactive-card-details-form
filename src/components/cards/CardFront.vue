@@ -4,7 +4,8 @@ import {
   useNameStore, 
   useNumberStore, 
   useExpirationMonthStore, 
-  useExpirationYearStore 
+  useExpirationYearStore,
+  formatCardNumber
 } from '@/app';
 import { computed } from 'vue';
 
@@ -21,7 +22,7 @@ const defaults = {
 }
 
 const number = computed(() => {
-  return appStore.isFormValid ? numberStore.input : defaults.number
+  return formatCardNumber(appStore.isFormValid ? numberStore.input : defaults.number)
 })
 
 const name = computed(() => {

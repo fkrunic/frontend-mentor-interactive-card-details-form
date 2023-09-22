@@ -1,21 +1,7 @@
 <script setup lang="ts">
 import FieldBox from '@/components/fields/FieldBox.vue';
 import FieldInput from '@/components/fields/FieldInput.vue';
-import { useNumberStore } from '@/app'
-
-const formatCardNumber = (cn: string): string => {
-  const noSpaces = cn.replace(/\s+/g, '')
-  let formated = ''
-
-  for (let i = 0; i < noSpaces.length; i++) {
-    if (i > 0 && i % 4 == 0) {
-      formated += ' '
-    }
-    formated += noSpaces.charAt(i)
-  }
-
-  return formated.trim()
-}
+import { useNumberStore, formatCardNumber } from '@/app'
 
 const store = useNumberStore()
 const onInput = (input: string): void => store.updateInput(input)
