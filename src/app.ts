@@ -14,6 +14,12 @@ const nonEmpty = (input: string): Status => {
   return input !== '' ? { kind: 'ok' } : { kind: 'error', message }
 }
 
+const lettersOnly = (input: string): Status => {
+  const message = 'Must contain letters only'
+  const noSpaces = input.replace(/\s+/g, '')
+  return validator.isAlpha(noSpaces) ? { kind: 'ok' } : { kind: 'error', message }
+}
+
 const isCreditCard = (input: string): Status => {
   const message = 'Invalid card number'
   return validator.isCreditCard(input) ? { kind: 'ok' } : { kind: 'error', message }
@@ -72,7 +78,7 @@ export const buildInputStore = (name: string, validators: Array<Validator>) => {
   })
 }
 
-export const useNameStore = buildInputStore('name', [nonEmpty])
+export const useNameStore = buildInputStore('name', [nonEmpty, lettersOnly])
 export const useNumberStore = buildInputStore('number', [nonEmpty, isCreditCard])
 export const useExpirationMonthStore = buildInputStore('expirationMonth', [nonEmpty, isExpirationMonth])
 export const useExpirationYearStore = buildInputStore('expirationYear', [nonEmpty, isExpirationYear])
