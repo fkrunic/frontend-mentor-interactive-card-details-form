@@ -20,22 +20,8 @@ const defaults = {
   expiration: '00/00'
 }
 
-const formatCardNumber = (cn: string): string => {
-  const noSpaces = cn.replace(/\s+/g, '')
-  let formated = ''
-
-  for (let i = 0; i < noSpaces.length; i++) {
-    if (i > 0 && i % 4 == 0) {
-      formated += ' '
-    }
-    formated += noSpaces.charAt(i)
-  }
-
-  return formated.trim()
-}
-
 const number = computed(() => {
-  return formatCardNumber(appStore.isFormValid ? numberStore.input : defaults.number)
+  return appStore.isFormValid ? numberStore.input : defaults.number
 })
 
 const name = computed(() => {
