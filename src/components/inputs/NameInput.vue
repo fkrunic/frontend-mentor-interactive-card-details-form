@@ -15,6 +15,7 @@ const onInput = (input: string): void => store.updateInput(input)
       :length="'long'"
       @input="onInput"
       autocomplete="cc-name"
+      maxlength="30"
       ></FieldInput>
   </FieldBox>
 </template>

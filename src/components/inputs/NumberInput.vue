@@ -30,6 +30,7 @@ const onInput = (input: string): void => store.updateInput(input)
       :value="formatCardNumber(store.input)"
       @input="onInput"
       autocomplete="cc-number"
+      maxlength="19"
       ></FieldInput>
   </FieldBox>
 </template>

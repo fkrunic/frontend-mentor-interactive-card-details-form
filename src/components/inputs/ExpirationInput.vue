@@ -32,6 +32,7 @@ const onYearInput = (input: string): void => yearStore.updateInput(input)
         :length="'short'"
         @input="onMonthInput"
         autocomplete="cc-exp-month"
+        maxlength="2"
         ></FieldInput>
       <FieldInput
         :placeholder="'YY'"
@@ -39,6 +40,7 @@ const onYearInput = (input: string): void => yearStore.updateInput(input)
         :length="'short'"
         @input="onYearInput"
         autocomplete="cc-exp-year"
+        maxlength="2"
         ></FieldInput>
     </div>
   </FieldBox>
